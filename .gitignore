@@ -1,0 +1,9 @@
+# IGNORE ultralytics directory
+ultralytics/
+
+# IGNORE paddle_openvino directory
+paddle_openvino/
+
+/yolo-model/anpr_v8.torchscript
+/yolo-model/anpr_v8.engine
+/yolo-model/anpr_v8.onnx
