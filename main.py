@@ -10,7 +10,8 @@ import json
 import numpy as np
 
 # Load Model
-model = YOLO("yolo-model/anpr_v8.pt")
+#model = YOLO("yolo-model/anpr_v8.pt")
+model = YOLO("yolo-model/anpr_v8_nano.pt")
 
 app = FastAPI(title="YOLOV8 API")
 
