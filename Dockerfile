@@ -1,14 +1,12 @@
-FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu22.04
-FROM python:3.9
+FROM python:3.9-slim-buster
 
 WORKDIR /app
 
-RUN apt-get update && \
-    apt-get install -y python3.9 && \
-    apt-get install -y python3-pip && \
-    apt-get install -y libgl1 && \
-    python -m pip install --upgrade pip && \
-    pip install "fastapi[all]"
+RUN apt-get update
+RUN apt-get install -y libgl1
+RUN apt-get install -y libglib2.0-0
+RUN pip3 install --upgrade pip
+RUN pip3 install "fastapi[all]"
 
 COPY . .
 
@@ -17,6 +15,9 @@ RUN pip install -e .
 
 WORKDIR /app/paddle_openvino
 RUN pip install -e .
+
+# Clean up
+RUN apt-get clean
 
 EXPOSE 8000
 
